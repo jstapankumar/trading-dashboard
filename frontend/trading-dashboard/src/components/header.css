@@ -1,0 +1,55 @@
+/* Styling for the header */
+header {
+    background-color: #1a202c; /* Dark slate color */
+    padding: 15px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Styling for the navigation buttons */
+  header nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 10px 20px;
+    border: 2px solid transparent;
+    border-radius: 25px;
+    margin: 0 10px;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #667eea, #764ba2); /* Nice gradient */
+  }
+  
+  header nav a:hover {
+    background: linear-gradient(135deg, #764ba2, #667eea); /* Reverse gradient on hover */
+    border-color: #667eea; /* Adds a subtle border */
+    color: white;
+    transform: scale(1.05); /* Slight zoom effect */
+  }
+  
+  header nav a:active {
+    transform: scale(0.95); /* Click feedback */
+    opacity: 0.9;
+  }
+  
+  /* Optional: Center align the text inside buttons */
+  header nav a span {
+    display: block;
+    text-align: center;
+  }
+  
+  /* Optional: Mobile-friendly responsiveness */
+  @media (max-width: 768px) {
+    header {
+      flex-direction: column;
+    }
+  
+    header nav a {
+      margin: 5px 0;
+      width: 100%; /* Full width for smaller screens */
+      text-align: center;
+    }
+  }
+  
