@@ -1,24 +1,26 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import { fetchMarketData } from '../services/api'; // Import your reusable function
 
 const Dashboard = () => {
   const [marketData, setMarketData] = useState([]);
 
   useEffect(() => {
-    // Fetching mock market data (you can replace this with actual API calls)
-    axios.get('https://api.example.com/market')
-      .then((response) => {
-        setMarketData(response.data);
-      })
-      .catch((error) => console.error('Error fetching market data:', error));
+    const getMarketData = async () => {
+      const data = await fetchMarketData(); // Use the reusable function
+      setMarketData(data);
+    };
+
+    getMarketData();
   }, []);
 
   return (
     <div className="dashboard">
-      <p>Market Dashboard</p>
+      <h1>Market Dashboard</h1>
       <ul>
-        {marketData.map((data, index) => (
-          <li key={index}>{data.name}: ${data.price}</li>
+        {marketData.map((coin) => (
+          <li key={coin.id}>
+            {coin.name}: ${coin.current_price.toFixed(2)} {/* Use current_price */}
+          </li>
         ))}
       </ul>
     </div>
